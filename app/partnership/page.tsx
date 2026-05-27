@@ -29,7 +29,7 @@ export default async function PartnershipPage({
   const copy = getMongoliaContent(locale);
 
   const sections = {
-    hero: <PartnershipHero content={copy.partnership.hero} locale={locale} />,
+    hero: <PartnershipHero content={copy.partnership.hero} />,
     benefits: <BenefitsSection content={copy.partnership.benefits} />,
     steps: <StepsSection content={copy.partnership.steps} />,
     paths: <PathsSection content={copy.partnership.paths} locale={locale} />,

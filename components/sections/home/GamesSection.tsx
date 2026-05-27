@@ -4,10 +4,8 @@ import { SafeImage } from "@/components/ui/SafeImage";
 import { SectionIntro } from "@/components/ui/SectionIntro";
 import type { MongoliaLocale } from "@/config/mongolia.globals";
 import { getLocalizedImageAsset } from "@/content/mongolia-image-slots";
+import { playerAccessHref } from "@/content/markets/mongolia";
 import type { LocaleContent } from "@/content/markets/mongolia";
-
-const gamesAccessHref =
-  "https://refpa3665.com/L?tag=d_4092175m_66329c_MLBMongolia26";
 
 const gamesCardCtas = {
   "home-casino-discovery": {
@@ -62,7 +60,7 @@ export function GamesSection({ content, locale }: GamesSectionProps) {
                     <p className="type-body text-pretty">{card.body}</p>
                     <CTAButton
                       className="mt-1 self-start"
-                      href={gamesAccessHref}
+                      href={playerAccessHref}
                       label={ctaLabel}
                     />
                   </div>

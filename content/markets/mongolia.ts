@@ -23,6 +23,7 @@ type MediaCard = {
   body: string;
   badge: string;
   imageSlotId: ImageSlotId;
+  cta?: Cta;
 };
 
 type RouteCard = {
@@ -37,6 +38,9 @@ const placeholderContactHrefs = {
   email: "mailto:your-email@example.com",
   telegram: "https://t.me/your_telegram",
 } as const;
+
+export const playerAccessHref =
+  "https://refpa3665.com/L?tag=d_4092175m_66329c_MLBMongolia26";
 
 type FaqItem = {
   question: string;
@@ -314,6 +318,10 @@ export const mongoliaContent: Record<MongoliaLocale, LocaleContent> = {
             body: "Stay close to gift drops, loyalty moments, and extra reasons to keep the flow moving.",
             badge: "Rewards",
             imageSlotId: "home-gifts",
+            cta: {
+              label: "claim 200$ bonus",
+              href: playerAccessHref,
+            },
           },
         ],
         rewardStrip: [
@@ -751,6 +759,10 @@ export const mongoliaContent: Record<MongoliaLocale, LocaleContent> = {
             body: "Ð‘ÑÐ»Ð³Ð¸Ð¹Ð½ Ð¼Ó©Ñ‡, loyalty ÑˆÐ°Ð³Ð½Ð°Ð», Ò¯Ñ€Ð³ÑÐ»Ð¶Ð»Ò¯Ò¯Ð»ÑÑ… Ð½ÑÐ¼ÑÐ»Ñ‚ ÑˆÐ°Ð»Ñ‚Ð³Ð°Ð°Ð½Ð°Ð° Ð¾Ð¹Ñ€ Ð±Ð°Ð¹Ð»Ð³Ð°.",
             badge: "Rewards",
             imageSlotId: "home-gifts",
+            cta: {
+              label: "claim 200$ bonus",
+              href: playerAccessHref,
+            },
           },
         ],
         rewardStrip: [

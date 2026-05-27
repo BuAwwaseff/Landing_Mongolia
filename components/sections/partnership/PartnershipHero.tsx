@@ -1,15 +1,13 @@
 import { CTAButton } from "@/components/ui/CTAButton";
 import { MotionCluster } from "@/components/ui/MotionCluster";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import type { MongoliaLocale } from "@/config/mongolia.globals";
 import type { LocaleContent } from "@/content/markets/mongolia";
 
 type PartnershipHeroProps = {
   content: LocaleContent["partnership"]["hero"];
-  locale: MongoliaLocale;
 };
 
-export function PartnershipHero({ content, locale }: PartnershipHeroProps) {
+export function PartnershipHero({ content }: PartnershipHeroProps) {
   return (
     <section className="section-shell hero-shell" id="top">
       <div className="shell-container">

@@ -1,3 +1,4 @@
+import { CTAButton } from "@/components/ui/CTAButton";
 import { MotionCluster } from "@/components/ui/MotionCluster";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { SectionIntro } from "@/components/ui/SectionIntro";
@@ -56,6 +57,14 @@ export function OffersSection({ content, locale }: OffersSectionProps) {
                   <div className="media-card__body">
                     <h3 className="type-card-title">{card.title}</h3>
                     <p className="type-body text-pretty">{card.body}</p>
+                    {card.cta ? (
+                      <CTAButton
+                        className="mt-1 self-start"
+                        href={card.cta.href}
+                        label={card.cta.label}
+                        variant={card.cta.variant}
+                      />
+                    ) : null}
                   </div>
                 </article>
               );
