@@ -35,8 +35,8 @@ type RouteCard = {
 };
 
 const placeholderContactHrefs = {
-  email: "mailto:your-email@example.com",
-  telegram: "https://t.me/your_telegram",
+  email: "mailto:PAYPARTNERS-MIDDLEAST@MELBET.COM",
+  telegram: "https://t.me/TeamCash_Mongolia",
 } as const;
 
 export const playerAccessHref =
@@ -585,11 +585,11 @@ export const mongoliaContent: Record<MongoliaLocale, LocaleContent> = {
         body: "Open the player support lane or contact the partnership desk if you already know what you want to start.",
         primaryCta: {
           label: "Email player support",
-          href: "mailto:support@mongolia-market.example",
+          href: "mailto:PAYPARTNERS-MIDDLEAST@MELBET.COM",
         },
         secondaryCta: {
           label: "Email partnership desk",
-          href: "mailto:partnership@mongolia-market.example",
+          href: "mailto:PAYPARTNERS-MIDDLEAST@MELBET.COM",
           variant: "secondary",
         },
       },
@@ -1030,11 +1030,11 @@ export const mongoliaContent: Record<MongoliaLocale, LocaleContent> = {
         body: "Ð¢Ð¾Ð³Ð»Ð¾Ð³Ñ‡Ð¸Ð¹Ð½ support lane-Ð°Ð° Ð½ÑÑÑ… ÑÑÐ²ÑÐ» ÑÑ…Ð»ÑÑ… Ð·Ò¯Ð¹Ð»ÑÑ Ð¼ÑÐ´ÑÐ¶ Ð±Ð°Ð¹Ð²Ð°Ð» partnership desk-Ñ‚ÑÐ¹ ÑˆÑƒÑƒÐ´ Ñ…Ð¾Ð»Ð±Ð¾Ð³Ð´.",
         primaryCta: {
           label: "Ð¢Ð¾Ð³Ð»Ð¾Ð³Ñ‡Ð¸Ð¹Ð½ support Ð¸Ð¼ÑÐ¹Ð»",
-          href: "mailto:support@mongolia-market.example",
+          href: "mailto:PAYPARTNERS-MIDDLEAST@MELBET.COM",
         },
         secondaryCta: {
           label: "Ð¢Ò¯Ð½ÑˆÐ»ÑÐ»Ð¸Ð¹Ð½ desk Ð¸Ð¼ÑÐ¹Ð»",
-          href: "mailto:partnership@mongolia-market.example",
+          href: "mailto:PAYPARTNERS-MIDDLEAST@MELBET.COM",
           variant: "secondary",
         },
       },
