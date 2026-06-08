@@ -1,6 +1,7 @@
 ﻿import type { NavKey, MongoliaLocale } from "@/config/mongolia.globals";
 import { terminology } from "@/content/system/terminology";
 import type { ImageSlotId } from "@/content/mongolia-image-slots";
+import { repairMojibake } from "@/lib/repair-mojibake";
 
 type Cta = {
   label: string;
@@ -185,7 +186,7 @@ export type LocaleContent = {
   };
 };
 
-export const mongoliaContent: Record<MongoliaLocale, LocaleContent> = {
+const rawMongoliaContent: Record<MongoliaLocale, LocaleContent> = {
   en: {
     seo: {
       homeTitle: "Mongolia Premium Sports & Casino",
@@ -1077,6 +1078,11 @@ export const mongoliaContent: Record<MongoliaLocale, LocaleContent> = {
         "Copyright \u00A9 2026. \u0411\u04af\u0445 \u044d\u0440\u0445 \u0445\u0443\u0443\u043b\u0438\u0430\u0440 \u0445\u0430\u043c\u0433\u0430\u0430\u043b\u0430\u0433\u0434\u0441\u0430\u043d.",
     },
   },
+};
+
+export const mongoliaContent: Record<MongoliaLocale, LocaleContent> = {
+  ...rawMongoliaContent,
+  mn: repairMojibake(rawMongoliaContent.mn),
 };
 
 export const getMongoliaContent = (locale: MongoliaLocale) =>

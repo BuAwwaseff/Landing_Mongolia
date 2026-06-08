@@ -11,6 +11,8 @@ export function PageBackground({ page }: PageBackgroundProps) {
       <div className="page-background__glow page-background__glow--top" />
       <div className="page-background__glow page-background__glow--side" />
       <div className="page-background__glow page-background__glow--gold" />
+      <div className="page-background__steppe" />
+      <div className="page-background__soyombo" />
       <div className="page-background__grid" />
       <div className="page-background__vignette" />
     </div>

@@ -34,6 +34,9 @@ export function SiteHeader({
   const topbarRevealStyle = (index: number) =>
     ({ "--topbar-index": index } as CSSProperties);
   const ctaHref = withLocale(cta.href, locale);
+  const compactNavItems = mongoliaGlobals.chrome.nav.filter((item) =>
+    mobileNavKeys.has(item.key),
+  );
 
   const localeTargets = useMemo(() => {
     const current = pathname ?? "/";
@@ -71,7 +74,32 @@ export function SiteHeader({
           >
             <MongoliaLogo compact />
           </Link>
-          <nav className="header-nav">
+          <nav className="header-nav header-nav--compact">
+            {compactNavItems.map((item, index) => {
+              const href = withLocale(item.href, locale);
+              const isActive =
+                (activePage === "home" && item.key === "home") ||
+                (activePage === "partnership" && item.key === "partnership") ||
+                (activePage === "faq" && item.key === "faq");
+
+              return (
+                <Link
+                  className={cn(
+                    "header-nav__link",
+                    "topbar-reveal-item",
+                    isActive && "is-active",
+                  )}
+                  href={href}
+                  key={item.key}
+                  onClick={() => setOpen(false)}
+                  style={topbarRevealStyle(index + 1)}
+                >
+                  {navLabels[item.key]}
+                </Link>
+              );
+            })}
+          </nav>
+          <nav className="header-nav header-nav--desktop">
             {mongoliaGlobals.chrome.nav.map((item, index) => {
               const href = withLocale(item.href, locale);
               const isActive =
@@ -98,7 +126,25 @@ export function SiteHeader({
           </nav>
           <div className="header-actions">
             <div
-              className="topbar-reveal-item hidden min-[980px]:inline-flex"
+              className="locale-switch locale-switch--header topbar-reveal-item"
+              style={topbarRevealStyle(mongoliaGlobals.chrome.nav.length + 1)}
+            >
+              {localeTargets.map((target) => (
+                <Link
+                  className={cn(
+                    "locale-switch__item",
+                    target.value === locale && "is-active",
+                  )}
+                  href={target.href}
+                  key={target.value}
+                  onClick={() => setOpen(false)}
+                >
+                  {target.value.toUpperCase()}
+                </Link>
+              ))}
+            </div>
+            <div
+              className="header-actions__cta topbar-reveal-item"
               style={topbarRevealStyle(
                 mongoliaGlobals.chrome.nav.length + localeTargets.length + 1,
               )}
@@ -108,7 +154,7 @@ export function SiteHeader({
                 label={cta.label}
               />
             </div>
-            <div className="ml-auto flex items-center gap-2 min-[980px]:hidden">
+            <div className="header-mobile-controls">
               <button
                 aria-controls="topbar-mobile-menu"
                 aria-expanded={open}
@@ -124,48 +170,31 @@ export function SiteHeader({
                 )}
                 type="button"
               >
-                <span className="relative block h-4 w-4">
-                  <span
-                    className={cn(
-                      "absolute left-0 top-[2px] h-px w-full bg-[currentColor] transition duration-300 ease-out",
-                      open && "translate-y-[6px] rotate-45",
-                    )}
-                  />
-                  <span
-                    className={cn(
-                      "absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-[currentColor] transition duration-300 ease-out",
-                      open && "opacity-0",
-                    )}
-                  />
-                  <span
-                    className={cn(
-                      "absolute bottom-[2px] left-0 h-px w-full bg-[currentColor] transition duration-300 ease-out",
-                      open && "-translate-y-[6px] -rotate-45",
-                    )}
-                  />
+                <span className="header-mobile-toggle__icon">
+                  <span className="header-mobile-toggle__line header-mobile-toggle__line--top" />
+                  <span className="header-mobile-toggle__line header-mobile-toggle__line--middle" />
+                  <span className="header-mobile-toggle__line header-mobile-toggle__line--bottom" />
                 </span>
               </button>
             </div>
           </div>
         </div>
         {open ? (
-          <div className="relative min-[980px]:hidden">
+          <div className="header-menu-wrap">
             <div className="header-menu" id="topbar-mobile-menu">
-              <nav className="flex flex-col gap-2">
-                {mongoliaGlobals.chrome.nav
-                  .filter((item) => mobileNavKeys.has(item.key))
-                  .map((item) => (
-                    <Link
-                      className="header-menu__link"
-                      href={withLocale(item.href, locale)}
-                      key={item.key}
-                      onClick={() => setOpen(false)}
-                    >
-                      {navLabels[item.key]}
-                    </Link>
-                  ))}
+              <nav className="header-menu__nav">
+                {compactNavItems.map((item) => (
+                  <Link
+                    className="header-menu__link"
+                    href={withLocale(item.href, locale)}
+                    key={item.key}
+                    onClick={() => setOpen(false)}
+                  >
+                    {navLabels[item.key]}
+                  </Link>
+                ))}
               </nav>
-              <div className="mt-4 flex flex-col gap-3">
+              <div className="header-menu__footer">
                 <div className="locale-switch">
                   {localeTargets.map((target) => (
                     <Link
@@ -182,7 +211,7 @@ export function SiteHeader({
                   ))}
                 </div>
                 <CTAButton
-                  className="w-full justify-center"
+                  className="header-menu__cta"
                   href={ctaHref}
                   label={cta.label}
                 />

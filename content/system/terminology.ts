@@ -1,6 +1,7 @@
 import type { MongoliaLocale } from "@/config/mongolia.globals";
+import { repairMojibake } from "@/lib/repair-mojibake";
 
-export const terminology: Record<
+const rawTerminology: Record<
   MongoliaLocale,
   {
     partnership: string;
@@ -30,4 +31,9 @@ export const terminology: Record<
     onboarding: "Эхлэх алхам",
     rewards: "Урамшуулал",
   },
+};
+
+export const terminology = {
+  ...rawTerminology,
+  mn: repairMojibake(rawTerminology.mn),
 };
